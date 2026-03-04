@@ -12,7 +12,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# dist (build output) is usually ignored but will be committed as requested
+# dist
 dist-ssr
 *.local
 

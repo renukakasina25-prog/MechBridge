@@ -1,0 +1,24 @@
+{
+  "name": "OrderItem",
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "type": "string"
+    },
+    "product_id": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "number"
+    },
+    "price_at_purchase": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "order_id",
+    "product_id",
+    "quantity",
+    "price_at_purchase"
+  ]
+}

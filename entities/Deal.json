@@ -1,0 +1,68 @@
+{
+  "name": "Deal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Deal title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Deal description"
+    },
+    "discount_percentage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Discount percentage"
+    },
+    "coupon_code": {
+      "type": "string",
+      "description": "Coupon code for the deal"
+    },
+    "product_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Associated product IDs"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date",
+      "description": "Deal expiry date"
+    },
+    "is_daily_deal": {
+      "type": "boolean",
+      "default": false,
+      "description": "Daily deal flag"
+    },
+    "max_usage": {
+      "type": "number",
+      "description": "Maximum usage count"
+    },
+    "current_usage": {
+      "type": "number",
+      "default": 0,
+      "description": "Current usage count"
+    },
+    "qr_code_url": {
+      "type": "string",
+      "description": "Generated QR code URL"
+    },
+    "deal_url": {
+      "type": "string",
+      "description": "Shareable deal URL"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Deal status"
+    }
+  },
+  "required": [
+    "title",
+    "discount_percentage",
+    "valid_until"
+  ]
+}

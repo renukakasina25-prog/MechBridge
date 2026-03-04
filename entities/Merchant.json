@@ -1,0 +1,64 @@
+{
+  "name": "Merchant",
+  "type": "object",
+  "properties": {
+    "shop_name": {
+      "type": "string",
+      "description": "Name of the spare parts shop"
+    },
+    "brands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Brands available at this shop"
+    },
+    "district": {
+      "type": "string",
+      "description": "District name"
+    },
+    "state": {
+      "type": "string",
+      "description": "State name"
+    },
+    "city": {
+      "type": "string",
+      "description": "City or town name"
+    },
+    "address": {
+      "type": "string",
+      "description": "Full address of the shop"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude coordinate"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude coordinate"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Shop rating out of 5"
+    },
+    "stock_products": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Product IDs available in stock"
+    }
+  },
+  "required": [
+    "shop_name",
+    "district",
+    "state",
+    "city",
+    "latitude",
+    "longitude"
+  ]
+}

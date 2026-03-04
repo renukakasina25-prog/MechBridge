@@ -1,0 +1,105 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "part_code": {
+      "type": "string",
+      "description": "Unique part identifier"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "engine_parts",
+        "electrical_system",
+        "fuel_system",
+        "transmission_drivetrain",
+        "braking_system",
+        "suspension",
+        "wheels_tyres",
+        "body_frame",
+        "cooling_system",
+        "air_filtration",
+        "exhaust_system",
+        "controls_cables",
+        "maintenance_fluids",
+        "accessories"
+      ],
+      "description": "Main part category"
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "Specific part type"
+    },
+    "vehicle_type": {
+      "type": "string",
+      "enum": [
+        "bike",
+        "scooter",
+        "e_auto",
+        "universal"
+      ],
+      "description": "Compatible vehicle type"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Vehicle brand compatibility"
+    },
+    "model": {
+      "type": "string",
+      "description": "Specific model compatibility"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price in INR"
+    },
+    "original_price": {
+      "type": "number",
+      "description": "Original price before discount"
+    },
+    "stock_quantity": {
+      "type": "number",
+      "description": "Available stock"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Product image URL"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed product description"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key product features"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Featured product flag"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Product rating"
+    },
+    "compatibility_info": {
+      "type": "string",
+      "description": "Detailed compatibility information"
+    }
+  },
+  "required": [
+    "name",
+    "part_code",
+    "category",
+    "vehicle_type",
+    "price"
+  ]
+}

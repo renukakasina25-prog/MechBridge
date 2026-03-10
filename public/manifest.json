@@ -1,0 +1,17 @@
+{
+  "name": "MechBridge",
+  "short_name": "MechBridge",
+  "description": "Your app description",
+  "start_url": "/MechBridge/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/MechBridge/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

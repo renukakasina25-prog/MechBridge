@@ -1,3 +1,3 @@
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 
-export const Order = base44.entities.Order;
+export const Order = client.entities.Order;

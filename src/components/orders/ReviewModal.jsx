@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,9 +20,9 @@ export default function ReviewModal({ isOpen, onClose, product, onReviewSubmitte
 
     setSubmitting(true);
     try {
-      const user = await base44.auth.me();
+      const user = await client.auth.me();
       
-      await base44.entities.Review.create({
+      await client.entities.Review.create({
         product_id: product.id,
         order_id: product.orderId,
         user_email: user.email,

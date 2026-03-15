@@ -4,27 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Filter, X } from 'lucide-react';
-
-const VEHICLE_TYPES = [
-  { value: 'bike', label: 'Motorcycles' },
-  { value: 'e_auto', label: 'E-Rickshaw' }
-];
-
-const CATEGORIES = [
-  { value: 'drivetrain', label: 'Drivetrain' },
-  { value: 'brakes', label: 'Brakes' },
-  { value: 'electrical', label: 'Electrical' },
-  { value: 'body', label: 'Body Parts' },
-  { value: 'suspension', label: 'Suspension' },
-  { value: 'filters', label: 'Filters' },
-  { value: 'tyres', label: 'Tyres' },
-  { value: 'accessories', label: 'Accessories' }
-];
-
-const BRANDS = [
-  'Honda', 'Bajaj', 'TVS', 'Hero', 'Yamaha', 'KTM', 'Royal Enfield', 
-  'Suzuki', 'Mahindra', 'Piaggio', 'Ather', 'Ola Electric'
-];
+import { VEHICLE_TYPES, CATEGORIES, BRANDS, PRICE_RANGES } from '@/lib/constants';
 
 export default function FilterPanel({ filters, onFilterChange, onClearFilters }) {
   const activeFiltersCount = Object.values(filters).filter(v => v && v !== 'all').length;
@@ -125,12 +105,11 @@ export default function FilterPanel({ filters, onFilterChange, onClearFilters })
               <SelectValue placeholder="Any Price" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">Any Price</SelectItem>
-              <SelectItem value="0-500">₹0 - ₹500</SelectItem>
-              <SelectItem value="500-1000">₹500 - ₹1,000</SelectItem>
-              <SelectItem value="1000-2500">₹1,000 - ₹2,500</SelectItem>
-              <SelectItem value="2500-5000">₹2,500 - ₹5,000</SelectItem>
-              <SelectItem value="5000+">₹5,000+</SelectItem>
+              {PRICE_RANGES.map(range => (
+                <SelectItem key={range.value} value={range.value}>
+                  {range.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>

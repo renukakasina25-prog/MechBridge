@@ -28,6 +28,7 @@ import {
 import { toast } from 'sonner';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
+import { CATEGORIES } from '@/lib/constants';
 
 const CATEGORY_CONFIG = [
   {

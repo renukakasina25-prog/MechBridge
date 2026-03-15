@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -20,7 +20,7 @@ export default function AdminOrders() {
 
   const loadOrders = async () => {
     try {
-      const currentUser = await base44.auth.me();
+      const currentUser = await client.auth.me();
       setUser(currentUser);
       
       if (currentUser.role !== 'admin') {
@@ -28,14 +28,14 @@ export default function AdminOrders() {
         return;
       }
       
-      const allOrders = await base44.entities.Order.list('-created_date', 100);
+      const allOrders = await client.entities.Order.list('-created_date', 100);
       
       const ordersWithItems = await Promise.all(
         allOrders.map(async (order) => {
-          const items = await base44.entities.OrderItem.filter({ order_id: order.id });
+          const items = await client.entities.OrderItem.filter({ order_id: order.id });
           const itemsWithProducts = await Promise.all(
             items.map(async (item) => {
-              const product = await base44.entities.Product.filter({ id: item.product_id });
+              const product = await client.entities.Product.filter({ id: item.product_id });
               return { ...item, product: product[0] };
             })
           );
@@ -53,7 +53,7 @@ export default function AdminOrders() {
 
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
-      await base44.entities.Order.update(orderId, { status: newStatus });
+      await client.entities.Order.update(orderId, { status: newStatus });
       toast.success(`Order status updated to ${newStatus}`);
       loadOrders();
     } catch (error) {

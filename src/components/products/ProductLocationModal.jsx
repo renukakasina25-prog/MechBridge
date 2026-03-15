@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 import {
   Dialog,
   DialogContent,
@@ -26,7 +26,7 @@ export default function ProductLocationModal({ isOpen, onClose, product }) {
   const loadMerchantsForProduct = async () => {
     setLoading(true);
     try {
-      const allMerchants = await base44.entities.Merchant.list('-rating', 500);
+      const allMerchants = await client.entities.Merchant.list('-rating', 500);
       
       // Filter merchants that have this product in stock or sell this brand
       const relevantMerchants = allMerchants.filter(merchant => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -22,10 +22,10 @@ export default function MyOrders() {
 
   const loadOrders = async () => {
     try {
-      const currentUser = await base44.auth.me();
+      const currentUser = await client.auth.me();
       setUser(currentUser);
       
-      const userOrders = await base44.entities.Order.filter(
+      const userOrders = await client.entities.Order.filter(
         { user_email: currentUser.email },
         '-created_date',
         50
@@ -33,10 +33,10 @@ export default function MyOrders() {
       
       const ordersWithItems = await Promise.all(
         userOrders.map(async (order) => {
-          const items = await base44.entities.OrderItem.filter({ order_id: order.id });
+          const items = await client.entities.OrderItem.filter({ order_id: order.id });
           const itemsWithProducts = await Promise.all(
             items.map(async (item) => {
-              const product = await base44.entities.Product.filter({ id: item.product_id });
+              const product = await client.entities.Product.filter({ id: item.product_id });
               return { ...item, product: product[0] };
             })
           );
@@ -75,7 +75,7 @@ export default function MyOrders() {
   };
 
   const handleReview = async (product, order) => {
-    const existingReview = await base44.entities.Review.filter({
+    const existingReview = await client.entities.Review.filter({
       product_id: product.id,
       order_id: order.id,
       user_email: user.email

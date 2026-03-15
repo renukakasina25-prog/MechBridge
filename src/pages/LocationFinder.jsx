@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -63,7 +63,7 @@ export default function LocationFinder() {
   const loadMerchants = async () => {
     setLoading(true);
     try {
-      const data = await base44.entities.Merchant.list('-rating', 500);
+      const data = await client.entities.Merchant.list('-rating', 500);
       setMerchants(data);
       setFilteredMerchants(data);
     } catch (error) {

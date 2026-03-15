@@ -228,7 +228,7 @@ export default function Layout({ children, currentPageName }) {
               <div className="flex items-center gap-2 md:gap-3">
                 <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden shadow-lg">
                   <img 
-                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68bd4d604890101c87a5b6b7/ffe32f84d_ChatGPTImageJan7202610_45_37PM.png"
+                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/mechbridge-prod/public/68bd4d604890101c87a5b6b7/ffe32f84d_ChatGPTImageJan7202610_45_37PM.png"
                     alt="MechBridge Logo"
                     className="w-full h-full object-cover"
                   />

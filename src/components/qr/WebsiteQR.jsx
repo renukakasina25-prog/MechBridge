@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 
 export default function WebsiteQR() {
   const [showShareOptions, setShowShareOptions] = useState(false);
-  const websiteUrl = 'https://preview--mechbridge-spareparts.base44.app';
+  const websiteUrl = 'https://mechbridge.onrender.com';
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(websiteUrl)}`;
   const largeQrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(websiteUrl)}`;
 

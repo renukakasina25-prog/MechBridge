@@ -1,3 +1,3 @@
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 
-export const WishlistItem = base44.entities.WishlistItem;
+export const WishlistItem = client.entities.WishlistItem;

@@ -5,7 +5,7 @@ import { Product } from '@/entities/Product';
 import { Order } from '@/entities/Order';
 import { OrderItem } from '@/entities/OrderItem';
 import { Deal } from '@/entities/Deal';
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -259,7 +259,7 @@ Best regards,
 BikeMitra System
             `;
 
-            await base44.integrations.Core.SendEmail({
+            await client.integrations.Core.SendEmail({
                 to: OWNER_EMAIL,
                 subject: `New Order #${newOrder.id} - ₹${totalAmount.toLocaleString()} PAID`,
                 body: orderDetails,

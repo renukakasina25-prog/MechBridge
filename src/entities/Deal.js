@@ -1,3 +1,3 @@
-import { base44 } from '@/api/base44Client';
+import { client } from '@/api/apiClient';
 
-export const Deal = base44.entities.Deal;
+export const Deal = client.entities.Deal;

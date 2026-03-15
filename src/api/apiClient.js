@@ -4,7 +4,7 @@ import { appParams } from '@/lib/app-params';
 const { appId, token, functionsVersion, appBaseUrl } = appParams;
 
 //Create a client with authentication required
-export const base44 = createClient({
+export const client = createClient({
   appId,
   token,
   functionsVersion,
@@ -12,3 +12,5 @@ export const base44 = createClient({
   requiresAuth: false,
   appBaseUrl
 });
+
+export const base44 = client;
